@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="text/html; charset=KOI8-R" http-equiv="Content-Type">
+<meta content="Andrew ``Bass'' Shcheglov" name="author"><title>Comparison of Terminal Emulators</title></head><body alink="#000088" bgcolor="#ffffff" link="#0000FF" text="#000000" vlink="#FF0000">
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">Terminal Emulator<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">xterm (Solaris or Mac OS X, X11)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">rxvt (Mac OS X, X11)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">mrxvt (Mac OS X, X11)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">iTerm (Mac OS X)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">Terminal.app (Mac OS X)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">PuTTY (Windows)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">Linux Console<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">GNU Screen (Linux Console)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">GNU Screen<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">FreeBSD Console<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">Cach&#233; Terminal<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">HyperTerminal (Windows 9x)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">Telnet (Windows 9x)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">cmd.exe (Windows, telnet)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">cmd.exe (Windows, Cygwin Bash Shell)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">Solaris console<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">shelltool (Solaris OpenWindows)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">cmdtool (Solaris OpenWindows)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">dtterm (Solaris CDE)<br>
+        </font></th>
+      <th bgcolor="#990000" valign="top"><font color="#ffffff">rxvt (Solaris)<br>
+        </font></th>
+    </tr>
+    <tr>
+      <td valign="top">&nbsp;Terminal-type string (<tt>TERM</tt>)<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">xterm<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">xterm<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">rxvt<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">xterm<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">xterm-color<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">xterm<br>
+      </td>
+      <td bgcolor="#ff6600" valign="top">linux<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">screen.linux<br>
+      </td>
+      <td bgcolor="#9999ff" valign="top">screen<br>
+      </td>
+      <td bgcolor="#33ccff" valign="top">xterm<br>
+      </td>
+      <td bgcolor="#ff6600" valign="top">vt320<br>
+      </td>
+      <td bgcolor="#ff6600" valign="top">ansi<br>
+      </td>
+      <td bgcolor="#ff6600" valign="top">ansi<br>
+      </td>
+      <td bgcolor="#ff6600" valign="top">ansi<br>
+      </td>
+      <td bgcolor="#9999ff" valign="top">cygwin<br>
+      </td>
+      <td bgcolor="#ff6600" valign="top">sun-color<br>
+      </td>
+      <td bgcolor="#ff99ff" valign="top">sun-cmd<br>
+      </td>
+      <td bgcolor="#ff99ff" valign="top">sun-cmd<br>
+      </td>
+      <td bgcolor="#9999ff" valign="top">dtterm<br>
+      </td>
+      <td bgcolor="#9999ff" valign="top">kterm<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><tt>\e]0;%s\007</tt> (both <tt>WM_NAME</tt> and <tt>WM_ICON_NAME</tt>)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ffff99" valign="top">Partial (uses <tt>WM_ICON_NAME</tt> for tab title, doesn't set WM_NAME)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">N/A<br>
+      </td>
+      <td bgcolor="#ffff99" valign="top">Partial (<b>iTerm</b> and <b>Terminal.app</b> only, <b>X11</b>: only sets <tt>WM_ICON_NAME</tt>)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><tt>\e]1;%s\007</tt> (<tt>WM_ICON_NAME</tt>)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes</td>
+      <td bgcolor="#33cc00" valign="top">Yes (uses <tt>WM_ICON_NAME</tt> for tab title)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes (uses <tt>WM_ICON_NAME</tt> for <b>both</b> <i>tab</i> and <i>window</i> title if they're the same,<br>
+or <b>only</b> updates <i>tab</i> title if they're different)</td>
+      <td bgcolor="#33cc00" valign="top">Yes (sets <b>both</b> <i>tab</i> and <i>window</i> title)<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't affect taskbar button)<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ffff99" valign="top">Partial (<b>iTerm</b> and <b>Terminal.app</b> only)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't affect taskbar button)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><tt>\e]2;%s\007</tt> (<tt>WM_NAME</tt>)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes</td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't set <tt>WM_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes (sets <b>both</b> <i>tab</i> and <i>window</i> title)</td>
+      <td bgcolor="#33cc00" valign="top">Yes (also affects taskbar button)<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">Yes (also affects taskbar button)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><tt>\e]0;%s\e\\</tt> (both <tt>WM_NAME</tt> and <tt>WM_ICON_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes</td>
+      <td bgcolor="#ffff99" valign="top">Partial (uses <tt>WM_ICON_NAME</tt> for tab title, doesn't set <tt>WM_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">Partial (echoes \)<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ffff99" valign="top">Partial (<b>iTerm</b> and <b>Terminal.app</b> only, <b>X11</b>: only sets <tt>WM_ICON_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes \)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff6666" valign="top">No (hangs forever)<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><tt>\e]1;%s\e\\ </tt>(<tt>WM_ICON_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes</td>
+      <td bgcolor="#33cc00" valign="top">Yes (uses <tt>WM_ICON_NAME</tt> for tab title)</td>
+      <td bgcolor="#33cc00" valign="top">Yes (uses <tt>WM_ICON_NAME</tt> for <b>both</b> <i>tab</i> and <i>window</i> title if they're the same,<br>
+
+or <b>only</b> updates <i>tab</i> title if they're different)</td>
+      <td bgcolor="#ff6666" valign="top">Partial (sets <b>both</b> <i>tab</i> and <i>window</i> title, but echoes \)</td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't affect taskbar button)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ffff99" valign="top">Partial (<b>iTerm</b> and <b>Terminal.app</b> only)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes \)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff6666" valign="top">No (hangs forever)</td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><tt>\e]2;%s\e\\</tt> (<tt>WM_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes</td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't set <tt>WM_NAME</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">Partial (sets <b>both</b> <i>tab</i> and <i>window</i> title, but echoes \)</td>
+      <td bgcolor="#33cc00" valign="top">Yes (also affects taskbar button)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">N/A</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff6666" valign="top">No (echoes \)<br>
+      </td>
+      <td bgcolor="#ff6666" valign="top">No (echoes the whole sequence)</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff9900" valign="top">No</td>
+      <td bgcolor="#ff6666" valign="top">No (hangs forever)</td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">Supports title querying using xprop<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ffff99" valign="top">Partial (when both <tt>DISPLAY</tt> and <tt>WINDOWID</tt> are defined, <b>X11</b> only)<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't set <tt>WINDOWID</tt>)<br>
+      </td>
+      <td bgcolor="#ff9900" valign="top">No (doesn't set <tt>WINDOWID</tt>)</td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+      <td bgcolor="#33cc00" valign="top">Yes<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<ul>
+  <li><tt>ansi</tt>, <tt>vt320</tt>, <tt>sun-color</tt>, <tt>linux</tt>: no escape sequences should ever be attempted</li>
+  <li><tt>cygwin</tt>, <tt>dtterm</tt>, <tt>kterm</tt>, <tt>screen</tt>: only the old-style, non-compliant escape sequence should be attempted</li>
+  <li><tt>sun-cmd</tt>: both escape sequences are ignored, but they don't do any harm</li>
+  <li><tt>xterm*</tt>, <tt>rxvt</tt>, <tt>screen.linux</tt>: both escape sequences are fully supported, ANSI-compliant one should be attempted</li>
+</ul>
+  <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+  </p>
+</body></html>
