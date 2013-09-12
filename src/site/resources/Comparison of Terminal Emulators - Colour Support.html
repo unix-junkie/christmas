@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta content="text/html; charset=KOI8-R" http-equiv="Content-Type">
+
+<meta content="Andrew ``Bass'' Shcheglov" name="author">
+
+<title>Comparison of Terminal Emulators: Colour Support</title>
+
+</head><body style="   color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);" alink="#000088" link="#0000FF" vlink="#FF0000">
+<h1>Comparison of Terminal Emulators: Colour Support</h1>
+
+<br>
+
+<br>
+
+<table style=" text-align: left; margin-left: auto; margin-right: auto;" border="1" cellpadding="2" cellspacing="2">
+
+<tbody>
+<tr>
+<th style="vertical-align: top; background-color: rgb(153, 0, 0); color: rgb(255, 255, 255);">Terminal Emulator<br>
+</th>
+  <th style="  vertical-align: top; background-color: rgb(153, 0, 0); color: rgb(255, 255, 255);">Bright foreground is set via:<br>
+  </th>
+<th style="background-color: rgb(153, 0, 0); color: rgb(255, 255, 255);" valign="top">Bright background is set via:<br>
+</th>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="xterm"></a>xterm<br>
+</td>
+  <td style="vertical-align: top;">AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">AIXTerm sequences<br>
+</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="cygwin"></a>cygwin<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" bgcolor="#33ff33" valign="top"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top">vt52/vt100/<a name="ansi"></a>ansi/vtnt<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute<br>
+  </td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">None (just set the darker background colour)<br>
+</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="vt320"></a>vt320<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">AIXTerm sequences
+</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="rxvt-cygwin"></a>rxvt-cygwin/rxvt-cygwin-native<br>
+</td>
+  <td style="vertical-align: top;">AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="rxvt-unicode-256color"></a>rxvt-unicode-256color<br>
+</td>
+  <td style="vertical-align: top;">AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><a name="kterm"></a>kterm<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><a name="rxvt"></a>rxvt<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="dtterm"></a>dtterm<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">AIXTerm sequences
+</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="sun-cmd"></a>sun-cmd<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">AIXTerm sequences
+</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="sun-color"></a>sun-color<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">AIXTerm sequences</td>
+</tr>
+<tr>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><a name="linux"></a>linux<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><a name="screen.linux"></a>screen.linux<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 255);"><tt>BLINK</tt> attribute</td>
+</tr>
+<tr>
+<td style="background-color: rgb(255, 255, 255);" valign="top"><a name="screen"></a>screen<br>
+</td>
+  <td style="vertical-align: top;"><span style="font-family: monospace;">BOLD</span> attribute + AIXTerm sequences</td>
+<td style="background-color: rgb(255, 255, 255);" valign="top">AIXTerm sequences
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<br>
+
+<br>
+
+The below table provides more detail about colour support in various terminal emulators:<br>
+
+<br>
+
+<table style=" width: 100%;" border="1" cellpadding="2" cellspacing="2">
+
+  <tbody>
+    <tr>
+      <th style="color: rgb(255, 255, 255); background-color: rgb(153, 0, 0);" valign="top">Terminal Emulator<br>
+      </th>
+      <th style=" vertical-align: top; background-color: rgb(153, 0, 0); color: rgb(255, 255, 255);">Bright foreground via the <span style="font-family: monospace;">BOLD</span> attribute<br>
+</th>
+<th style=" vertical-align: top; background-color: rgb(153, 0, 0); color: rgb(255, 255, 255);">Bright foreground via AIXTerm sequences<br>
+</th>
+<th style="color: rgb(255, 255, 255); background-color: rgb(153, 0, 0);" valign="top">Bright background via the standard sequence</th>
+      <th style="color: rgb(255, 255, 255); background-color: rgb(153, 0, 0);" valign="top">Bright background via AIXTerm sequences<br>
+      </th>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm (/usr/X11/bin/xterm, <tt>251</tt>, Mac OS X)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span> (regardless of the <span style="font-family: monospace;">+bdc</span>/<span style="font-family: monospace;">-bdc</span> command line switch)<span style="font-weight: bold;"><br>
+  </span></td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)<br>
+      </td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm (/usr/bin/xterm, <tt>278</tt>, Linux)</td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span> (regardless of the <span style="font-family: monospace;">+bdc</span>/<span style="font-family: monospace;">-bdc</span> command line switch)<span style="font-weight: bold;"><br>
+  </span></td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm (/opt/sfw/bin/xterm, <tt>XFree86 4.0.1c(146)</tt>, Solaris 8)</td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span> (regardless of the <span style="font-family: monospace;">+bdc</span>/<span style="font-family: monospace;">-bdc</span> command line switch)<span style="font-weight: bold;"><br>
+  </span></td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> makes the text <b>bold</b>, w/o changing its colour (unlike <tt>BOLD</tt>))<br>
+      </td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm (/usr/openwin/bin/xterm, <tt>SUNWxwopt 6.4.1.3800</tt>, Solaris 8)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(204, 204, 204);">No (<span style="font-family: monospace;">BOLD</span> makes the text <b>bold</b>, no colour support at all)</td>
+<td style="vertical-align: top; background-color: rgb(204, 204, 204);">No (colour support is missing)</td>
+<td bgcolor="#cccccc" valign="top">No (<tt>BLINK</tt> makes the text <b>bold</b>, no colour support at all)<br>
+      </td>
+      <td bgcolor="#cccccc" valign="top">No (colour support is missing)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm (/usr/bin/xterm, <tt>287</tt>, CYGWIN)</td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span> (regardless of the <span style="font-family: monospace;">+bdc</span>/<span style="font-family: monospace;">-bdc</span> command line switch)<span style="font-weight: bold;"><br>
+  </span></td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (mintty.exe, <tt>1.1.2</tt>, CYGWIN)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (only if the "<span style="font-style: italic;">Show bold as colour</span>" flag (<span style="font-style: italic;">Options -&gt; Text</span>) is set)<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (PuTTY, <tt>0.61</tt>, Windows)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (only works if the "<span style="font-style: italic;">Bolded text is a different colour</span>" flag (<span style="font-style: italic;">Window -&gt; Colours</span>) is set)<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td bgcolor="#33ff33" valign="top">Yes (<tt>BLINK</tt> and <tt>BLINK_RAPID</tt> make the background bright)<br>
+      </td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (<a href="https://www.apple.com/osx/apps/all.html#terminal">Terminal.app</a>, Mac OS X)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (only works if the "<span style="font-style: italic;">Use bright colors for bold text</span>" flag (<span style="font-style: italic;">Settings -&gt; Text</span>) is set)</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (<a href="http://iterm.sourceforge.net">iTerm</a>, <tt>0.10</tt> Mac OS X)</td>
+      <td style="background-color: rgb(255, 102, 102);">No (only works if the "<span style="font-style: italic;">Bold</span>" flag (<span style="font-style: italic;">View -&gt; Show Session Info... -&gt; Session -&gt; Colors</span>) is cleared)</td><td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (<a href="http://iterm2.com/">iTerm2</a>, <tt>1.0.0.20120203</tt>, Mac OS X)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (only works if the "<span style="font-style: italic;">Draw bold text in bright colors</span>" flag (<span style="font-style: italic;">Preferences -&gt; Profiles -&gt;Text -&gt; Text Rendering</span>) is set)
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)</td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (<a href="http://www.secretgeometry.com/apps/cathode/">Cathode</a>, Mac OS X)</td>
+      <td colspan="2" rowspan="1" style="vertical-align: top; background-color: rgb(255, 255, 0); text-align: center;">No, but who cares?</td>
+
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="background-color: rgb(255, 255, 0);" valign="top">No, but who cares?<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 255, 204);" valign="top">xterm family (FreeDSD console)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> is ignored)</td>
+      <td style="background-color: rgb(255, 255, 0);" valign="top">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(153, 255, 153);" valign="top"><a href="#cygwin">cygwin</a> (<a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/cmd.mspx">cmd.exe</a>, Windows)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td bgcolor="#33ff33" valign="top">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="background-color: rgb(255, 255, 0);" valign="top">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 204, 204);" valign="top"><a href="#ansi">vt52/vt100/ansi/vtnt</a> (<a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/cmd.mspx">cmd.exe</a>, Windows)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (AIXTerm control sequences negate the effect of ANSI text attributes)</td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> is ignored)<br>
+      </td>
+      <td style="background-color: rgb(255, 102, 102);" valign="top">No (AIXTerm control sequences negate the effect of ANSI text attributes)<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><a href="#vt320">vt320</a> (<a href="http://docs.intersystems.com/cache20122/csp/docbook/DocBook.UI.Page.cls?KEY=GTER">Cach&#233; Terminal</a>, Windows)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (<span style="font-family: monospace;">BOLD</span> just makes the text <span style="font-weight: bold;">bold</span>)<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> blinks the text, inversing both foreground and background)<br>
+      </td>
+      <td style="background-color: rgb(255, 255, 0);" valign="top">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(153, 255, 153);" valign="top">rxvt-cygwin/rxvt-cygwin-native (rxvt, CYGWIN)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="background-color: rgb(153, 255, 153);" valign="top">rxvt-unicode-256color (rxvt, CYGWIN)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<tt>BLINK</tt> and <tt>BLINK_RAPID</tt> make the background bright)</td>
+      <td style="background-color: rgb(51, 255, 51);" valign="top">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);"><a href="#kterm">kterm</a> (rxvt, Solaris 8)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span><br>
+</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);">rxvt (rxvt/rxvt-xpm/rxvt-xterm, Linux)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);">rxvt-unicode-256color (rxvt-unicode, urxvt, Linux)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<tt>BLINK</tt> and <tt>BLINK_RAPID</tt> make the background bright)</td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);">rxvt (mrxvt/mrxvt-full, Linux)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (<span style="font-family: monospace;">BLINK</span> makes the background render in different colour, but this colour is always the same)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);">rxvt (rxvt, Mac OS X)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>), but also makes the text <span style="font-weight: bold;">bold</span>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);">rxvt (mrxvt, Mac OS X)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (<span style="font-family: monospace;">BOLD</span> just makes the text <span style="font-weight: bold;">bold</span>)
+</td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes<br>
+</td>
+<td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (<span style="font-family: monospace;">BLINK</span> makes the text <span style="background-color: rgb(0, 0, 0); color: rgb(255, 102, 102);">inverse</span>, w/o changing its colour (like <span style="font-family: monospace;">INVERSE</span>))</td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span> is still required to make foreground bright)
+      
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><a href="#dtterm">dtterm</a> ([<a href="http://docs.oracle.com/cd/E19683-01/806-4743/usingtermemulators-32845/index.html">1</a>], Solaris 8)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (<span style="font-family: monospace;">BOLD</span> just makes the text <span style="font-weight: bold;">bold</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<span style="font-family: monospace;">BLINK</span> makes the text <span style="background-color: rgb(0, 0, 0); color: rgb(255, 102, 102);">inverse</span>, w/o changing its colour (like <span style="font-family: monospace;">INVERSE</span>))<br>
+      </td>
+      <td style="background-color: rgb(255, 255, 0);" valign="top">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><a href="#sun-cmd">sun-cmd</a> (<a href="http://docs.oracle.com/cd/E19455-01/806-2901/shells-72059/index.html">shelltool</a>, Solaris 8)<br>
+      </td>
+      <td colspan="4" rowspan="1" style="vertical-align: top; background-color: rgb(204, 204, 204); text-align: center;">No (colour and attribute support is missing entirely)<br>
+</td>
+
+      
+    </tr>
+    <tr>
+      <td valign="top"><a href="#sun-color">sun-color</a> (Solaris 8 console)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="background-color: rgb(255, 102, 102);" valign="top">No (<tt>BLINK</tt> is ignored)</td>
+      <td style="background-color: rgb(255, 255, 0);" valign="top">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);"><a href="#linux">linux</a> (Linux console)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(153, 255, 153);"><a href="#screen.linux">screen.linux</a> (Linux console)
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<tt>BLINK</tt> makes the background bright)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><a href="#screen">screen</a><br>
+      </td>
+      <td colspan="4" rowspan="1" style="vertical-align: top; background-color: rgb(255, 255, 0); text-align: center;">Yes, if the underlying implementation supports it<br>
+
+      </td>
+
+      
+    </tr>
+    <tr>
+      <td style="background-color: rgb(255, 204, 204);" valign="top"><a href="#ansi">vt52/vt100/ansi</a> (telnet.exe, Windows 9x)<br>
+      </td>
+      <td colspan="4" rowspan="1" style="vertical-align: top; background-color: rgb(204, 204, 204); text-align: center;">No (colour and attribute support is missing entirely)</td>
+
+      
+    </tr>
+    <tr>
+      <td style="vertical-align: top; background-color: rgb(255, 204, 204);"><a href="#ansi">ansi</a> (HyperTerminal ([<a href="https://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/hyperterminal_top_node.mspx">1</a>], [<a href="http://technet.microsoft.com/en-us/library/cc784492%28v=ws.10%29.aspx">2</a>], [<a href="http://www.hilgraeve.com/hyperterminal/">3</a>]), Windows 95 to 2003)<br>
+      </td>
+      <td style="vertical-align: top; background-color: rgb(51, 255, 51);">Yes (<span style="font-family: monospace;">BOLD</span>)</td>
+<td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+<td style="vertical-align: top; background-color: rgb(255, 102, 102);">No (<tt>BLINK</tt> just blinks the text)</td>
+      <td style="vertical-align: top; background-color: rgb(255, 255, 0);">No (still, AIXTerm control sequences do not negate the effect of ANSI text attributes)
+      
+      
+      </td>
+    </tr>
+  </tbody>
+</table>
+  <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+  </p>
+</body></html>
