@@ -43,7 +43,7 @@ else
 		;;
 	esac
 	stty ${STTYARGS}
-	java ${VMARGS} com.google.code.christmas.InputDemo ${tty}
+	java ${VMARGS} com.github.unix_junkie.christmas.InputDemo ${tty}
 	returnValue=$?
 	stty sane 2>/dev/null
 	exit ${returnValue}
