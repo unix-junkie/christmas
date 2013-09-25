@@ -39,17 +39,13 @@
 			</includes>
 		</fileSet>
 		<fileSet>
-			<directory>${project.build.directory}/site/apidocs</directory>
-			<outputDirectory>share/doc/${project.artifactId}/api</outputDirectory>
+			<directory>${project.build.directory}/site</directory>
+			<outputDirectory>share/doc/${project.artifactId}</outputDirectory>
 			<fileMode>0644</fileMode>
 			<directoryMode>0755</directoryMode>
 			<includes>
 				<include>**</include>
 			</includes>
-			<excludes>
-				<exclude>options</exclude>
-				<exclude>packages</exclude>
-			</excludes>
 		</fileSet>
 	</fileSets>
 	<dependencySets>
