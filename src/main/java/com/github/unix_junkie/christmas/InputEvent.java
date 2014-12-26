@@ -37,6 +37,7 @@ public final class InputEvent implements CharSequence {
 	private final char data[];
 
 	/**
+	 * @param terminalType
 	 * @param data
 	 */
 	InputEvent(final TerminalType terminalType, final char ... data) {

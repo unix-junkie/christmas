@@ -14,7 +14,6 @@ public interface Border {
 	/**
 	 * @param component
 	 * @param buffer
-	 * @param term
 	 */
 	void paintBorder(@Nonnull final Component component,
 			@Nonnull final ComponentBuffer buffer);

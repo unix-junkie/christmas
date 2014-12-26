@@ -21,7 +21,6 @@ import com.github.unix_junkie.christmas.TextAttribute;
  * @author Andrew ``Bass'' Shcheglov (andrewbass@gmail.com)
  */
 final class ScreenCell {
-	@Nonnull
 	private char text;
 
 	@Nonnull

@@ -644,7 +644,7 @@ public final class Terminal extends PrintWriter {
 	}
 
 	/**
-	 * @param term
+	 * @param type
 	 */
 	private static String getEncoding(final TerminalType type) {
 		switch (type) {
