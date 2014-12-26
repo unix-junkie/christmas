@@ -17,7 +17,7 @@
 		<!-- TODO: is there a standard name for this? -->
 		<project.build.resourceDirectory>${basedir}/src/main/resources</project.build.resourceDirectory>
 		<emacsMode>true</emacsMode>
-		<scala.version>2.10.2</scala.version>
+		<scala.version>2.11.4</scala.version>
 		<google.collections.version>1.0</google.collections.version>
 	</properties>
 
@@ -187,23 +187,23 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-swing</artifactId>
-			<version>${scala.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-compiler</artifactId>
 			<version>${scala.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-dbc</artifactId>
-			<version>2.10.0-M2</version>
+			<artifactId>scala-actors</artifactId>
+			<version>${scala.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
-			<artifactId>scala-actors</artifactId>
-			<version>${scala.version}</version>
+			<artifactId>scala-swing</artifactId>
+			<version>2.10.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-dbc</artifactId>
+			<version>2.10.0-M2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.collections</groupId>
