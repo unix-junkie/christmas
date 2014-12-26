@@ -72,6 +72,7 @@
 		<project.build.resourceDirectory>${basedir}/src/main/resources</project.build.resourceDirectory>
 		<emacsMode>true</emacsMode>
 		<exec.mainClass>com.github.unix_junkie.christmas.jnlp.JnlpMain</exec.mainClass>
+		<exec.args>com.github.unix_junkie.christmas.InputDemo</exec.args>
 		<scala.version>2.11.4</scala.version>
 		<google.collections.version>1.0</google.collections.version>
 		<javadoc.plugin.version>2.9.1</javadoc.plugin.version>
