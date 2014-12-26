@@ -73,40 +73,28 @@ public final class WtHandler extends AbstractInputEventHandler {
 			if (event.isControlWith('W')) {
 				it.remove();
 
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						try {
-							final RootWindow rootWindow0 = WtHandler.this.getRootWindow(term);
-							rootWindow0.paint();
-						} catch (final Throwable t) {
-							term.clear();
-							t.printStackTrace(term);
-							term.flush();
-						}
+				term.invokeLater(() -> {
+					try {
+						final RootWindow rootWindow0 = WtHandler.this.getRootWindow(term);
+						rootWindow0.paint();
+					} catch (final Throwable t) {
+						term.clear();
+						t.printStackTrace(term);
+						term.flush();
 					}
 				});
 			} else if (event.isControlWith('L')) {
 				it.remove();
 
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						try {
-							final RootWindow rootWindow0 = WtHandler.this.getRootWindow(term);
-							rootWindow0.resizeToTerm();
-							rootWindow0.paint();
-						} catch (final Throwable t) {
-							term.clear();
-							t.printStackTrace(term);
-							term.flush();
-						}
+				term.invokeLater(() -> {
+					try {
+						final RootWindow rootWindow0 = WtHandler.this.getRootWindow(term);
+						rootWindow0.resizeToTerm();
+						rootWindow0.paint();
+					} catch (final Throwable t) {
+						term.clear();
+						t.printStackTrace(term);
+						term.flush();
 					}
 				});
 			}

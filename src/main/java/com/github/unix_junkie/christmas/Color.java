@@ -28,7 +28,7 @@ public enum Color {
 	BRIGHT_WHITE,
 	;
 
-	private static Map<Integer, Color> VALUES = new HashMap<Integer, Color>();
+	private static Map<Integer, Color> VALUES = new HashMap<>();
 
 	static {
 		for (final Color color : values()) {

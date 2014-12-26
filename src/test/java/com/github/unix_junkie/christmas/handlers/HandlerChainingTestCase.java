@@ -3,7 +3,8 @@
  */
 package com.github.unix_junkie.christmas.handlers;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -12,7 +13,9 @@ import com.github.unix_junkie.christmas.InputEventHandler;
 /**
  * @author Andrew ``Bass'' Shcheglov (andrewbass@gmail.com)
  */
-public final class HandlerChainingTestCase extends TestCase {
+public final class HandlerChainingTestCase {
+	@Test
+	@SuppressWarnings("static-method")
 	public void testAssertionStatus() {
 		try {
 			assert false;
@@ -23,6 +26,7 @@ public final class HandlerChainingTestCase extends TestCase {
 	}
 
 	@Test
+	@SuppressWarnings("static-method")
 	public void testChaining() {
 		final InputEventHandler initial = new Echo(new ExitHandler());
 		for (final InputEventHandler handler : initial) {
@@ -31,6 +35,7 @@ public final class HandlerChainingTestCase extends TestCase {
 	}
 
 	@Test
+	@SuppressWarnings("static-method")
 	public void testDuplicates() {
 		final AbstractInputEventHandler handler0 = new Echo(new ExitHandler());
 		final AbstractInputEventHandler handler1 = new ExitHandler();

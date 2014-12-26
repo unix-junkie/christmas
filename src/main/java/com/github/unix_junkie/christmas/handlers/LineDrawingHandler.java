@@ -44,70 +44,34 @@ public final class LineDrawingHandler extends AbstractInputEventHandler {
 
 		for (final InputEvent event : events) {
 			if (event.isControlWith('D')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						lineDrawingUnicode(term);
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					lineDrawingUnicode(term);
 				});
 			} else if (event.isControlWith('F')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						lineDrawingVt100(term);
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					lineDrawingVt100(term);
 				});
 			} else if (event.isControlWith('G')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						lineDrawingSunColor(term);
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					lineDrawingSunColor(term);
 				});
 			} else if (event.isControlWith('H')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						lineDrawingCp437(term);
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					lineDrawingCp437(term);
 				});
 			} else if (event.isControlWith('J')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						lineDrawingCp866(term);
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					lineDrawingCp866(term);
 				});
 			} else if (event.isControlWith('K')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						lineDrawingKoi8r(term);
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					lineDrawingKoi8r(term);
 				});
 			}
 		}

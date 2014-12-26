@@ -102,19 +102,13 @@ public final class FilteringCursorLocationHandler extends AbstractInputEventHand
 
 								assert t0Snapshot != 0L;
 
-								term.invokeLater(new Runnable() {
-									/**
-									 * @see Runnable#run()
-									 */
-									@Override
-									public void run() {
-										term.setTextAttributes(BRIGHT_RED, WHITE);
-										term.print("DEBUG:");
-										term.setTextAttributes(BRIGHT_BLACK, WHITE);
-										term.println(" Cursor location of " + cursorLocation1 + " reported " + (t1 - t0Snapshot) + " ms after the request.");
-										term.setTextAttributes(NORMAL);
-										term.flush();
-									}
+								term.invokeLater(() -> {
+									term.setTextAttributes(BRIGHT_RED, WHITE);
+									term.print("DEBUG:");
+									term.setTextAttributes(BRIGHT_BLACK, WHITE);
+									term.println(" Cursor location of " + cursorLocation1 + " reported " + (t1 - t0Snapshot) + " ms after the request.");
+									term.setTextAttributes(NORMAL);
+									term.flush();
 								});
 							}
 
@@ -208,42 +202,29 @@ public final class FilteringCursorLocationHandler extends AbstractInputEventHand
 					}
 				}
 
-				this.executor.schedule(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						synchronized (FilteringCursorLocationHandler.this.expectingCursorLocationLock) {
-							if (FilteringCursorLocationHandler.this.isExpectingCursorLocation()) {
-								FilteringCursorLocationHandler.this.setExpectingCursorLocation(false, term);
+				this.executor.schedule(() -> {
+					synchronized (FilteringCursorLocationHandler.this.expectingCursorLocationLock) {
+						if (FilteringCursorLocationHandler.this.isExpectingCursorLocation()) {
+							FilteringCursorLocationHandler.this.setExpectingCursorLocation(false, term);
 
-								/*
-								 * This background task can easily expire
-								 * if multiple events are being collected.
-								 */
-								if (isDebugMode()) {
-									term.invokeLater(new Runnable() {
-										/**
-										 * @see Runnable#run()
-										 */
-										@Override
-										public void run() {
-											term.setTextAttributes(BRIGHT_RED, WHITE);
-											term.print("DEBUG:");
-											term.setTextAttributes(BRIGHT_BLACK, WHITE);
-											term.println(" Timed out waiting for cursor location for " + FilteringCursorLocationHandler.this.expectingTimeoutMillis + " ms.");
-											term.setTextAttributes(NORMAL);
-											term.flush();
-										}
+							/*
+							 * This background task can easily expire
+							 * if multiple events are being collected.
+							 */
+							if (isDebugMode()) {
+								term.invokeLater(() -> {
+									term.setTextAttributes(BRIGHT_RED, WHITE);
+									term.print("DEBUG:");
+									term.setTextAttributes(BRIGHT_BLACK, WHITE);
+									term.println(" Timed out waiting for cursor location for " + FilteringCursorLocationHandler.this.expectingTimeoutMillis + " ms.");
+									term.setTextAttributes(NORMAL);
+									term.flush();
+								});
+							}
 
-									});
-								}
-
-								synchronized (FilteringCursorLocationHandler.this.cursorLocationLock) {
-									FilteringCursorLocationHandler.this.cursorLocation = UNDEFINED;
-									FilteringCursorLocationHandler.this.cursorLocationLock.notifyAll();
-								}
+							synchronized (FilteringCursorLocationHandler.this.cursorLocationLock) {
+								FilteringCursorLocationHandler.this.cursorLocation = UNDEFINED;
+								FilteringCursorLocationHandler.this.cursorLocationLock.notifyAll();
 							}
 						}
 					}

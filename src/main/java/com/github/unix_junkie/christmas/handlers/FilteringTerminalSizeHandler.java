@@ -126,19 +126,13 @@ public final class FilteringTerminalSizeHandler extends AbstractInputEventHandle
 								final long t1 = System.currentTimeMillis();
 								assert t0Snapshot != 0L;
 
-								term.invokeLater(new Runnable() {
-									/**
-									 * @see Runnable#run()
-									 */
-									@Override
-									public void run() {
-										term.setTextAttributes(BRIGHT_RED, WHITE);
-										term.print("DEBUG:");
-										term.setTextAttributes(BRIGHT_BLACK, WHITE);
-										term.println(" Terminal size of " + terminalSize1 + " reported " + (t1 - t0Snapshot) + " ms after the request.");
-										term.setTextAttributes(NORMAL);
-										term.flush();
-									}
+								term.invokeLater(() -> {
+									term.setTextAttributes(BRIGHT_RED, WHITE);
+									term.print("DEBUG:");
+									term.setTextAttributes(BRIGHT_BLACK, WHITE);
+									term.println(" Terminal size of " + terminalSize1 + " reported " + (t1 - t0Snapshot) + " ms after the request.");
+									term.setTextAttributes(NORMAL);
+									term.flush();
 								});
 							}
 
@@ -238,41 +232,29 @@ public final class FilteringTerminalSizeHandler extends AbstractInputEventHandle
 					}
 				}
 
-				this.executor.schedule(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						synchronized (FilteringTerminalSizeHandler.this.expectingTerminalSizeLock) {
-							if (FilteringTerminalSizeHandler.this.isExpectingTerminalSize()) {
-								FilteringTerminalSizeHandler.this.setExpectingTerminalSize(false, term);
+				this.executor.schedule(() -> {
+					synchronized (FilteringTerminalSizeHandler.this.expectingTerminalSizeLock) {
+						if (FilteringTerminalSizeHandler.this.isExpectingTerminalSize()) {
+							FilteringTerminalSizeHandler.this.setExpectingTerminalSize(false, term);
 
-								/*
-								 * This background task can easily expire
-								 * if multiple events are being collected.
-								 */
-								if (isDebugMode()) {
-									term.invokeLater(new Runnable() {
-										/**
-										 * @see Runnable#run()
-										 */
-										@Override
-										public void run() {
-											term.setTextAttributes(BRIGHT_RED, WHITE);
-											term.print("DEBUG:");
-											term.setTextAttributes(BRIGHT_BLACK, WHITE);
-											term.println(" Timed out waiting for terminal size for " + FilteringTerminalSizeHandler.this.expectingTimeoutMillis + " ms.");
-											term.setTextAttributes(NORMAL);
-											term.flush();
-										}
-									});
-								}
+							/*
+							 * This background task can easily expire
+							 * if multiple events are being collected.
+							 */
+							if (isDebugMode()) {
+								term.invokeLater(() -> {
+									term.setTextAttributes(BRIGHT_RED, WHITE);
+									term.print("DEBUG:");
+									term.setTextAttributes(BRIGHT_BLACK, WHITE);
+									term.println(" Timed out waiting for terminal size for " + FilteringTerminalSizeHandler.this.expectingTimeoutMillis + " ms.");
+									term.setTextAttributes(NORMAL);
+									term.flush();
+								});
+							}
 
-								synchronized (FilteringTerminalSizeHandler.this.terminalSizeLock) {
-									FilteringTerminalSizeHandler.this.terminalSize = UNDEFINED;
-									FilteringTerminalSizeHandler.this.terminalSizeLock.notifyAll();
-								}
+							synchronized (FilteringTerminalSizeHandler.this.terminalSizeLock) {
+								FilteringTerminalSizeHandler.this.terminalSize = UNDEFINED;
+								FilteringTerminalSizeHandler.this.terminalSizeLock.notifyAll();
 							}
 						}
 					}

@@ -4,18 +4,23 @@
 package com.github.unix_junkie.christmas;
 
 import static com.github.unix_junkie.christmas.VtTerminalSize.PATTERN;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.regex.Matcher;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 /**
  * @author Andrew ``Bass'' Shcheglov (andrewbass@gmail.com)
  */
-public final class VtTerminalSizeTestCase extends TestCase {
+@RunWith(JUnit4.class)
+public final class VtTerminalSizeTestCase {
 	@Test
+	@SuppressWarnings("static-method")
 	public void test() {
 		assertFalse(PATTERN.matcher("foo").matches());
 		assertFalse(PATTERN.matcher(InputEvent.ESC + "[8;;80").matches());

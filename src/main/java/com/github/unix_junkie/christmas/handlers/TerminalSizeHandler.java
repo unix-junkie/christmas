@@ -38,32 +38,26 @@ public final class TerminalSizeHandler extends AbstractInputEventHandler {
 
 		for (final InputEvent event : events) {
 			if (event.isControlWith('L')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						final Dimension terminalSize;
-						if (isDebugMode()) {
-							/*
-							 * In debug mode, clear the screen *before*
-							 * the debug output is printed.
-							 */
-							term.clear();
-							terminalSize = term.getSize();
-						} else {
-							terminalSize = term.getSize();
-							/*
-							 * Clear the screen *after*
-							 * it has potentially been messed with.
-							 */
-							term.clear();
-						}
-
-						term.println("Terminal size of " + terminalSize + " reported; default is " + term.getDefaultSize() + '.');
-						term.flush();
+				term.invokeLater(() -> {
+					final Dimension terminalSize;
+					if (isDebugMode()) {
+						/*
+						 * In debug mode, clear the screen *before*
+						 * the debug output is printed.
+						 */
+						term.clear();
+						terminalSize = term.getSize();
+					} else {
+						terminalSize = term.getSize();
+						/*
+						 * Clear the screen *after*
+						 * it has potentially been messed with.
+						 */
+						term.clear();
 					}
+
+					term.println("Terminal size of " + terminalSize + " reported; default is " + term.getDefaultSize() + '.');
+					term.flush();
 				});
 			}
 		}

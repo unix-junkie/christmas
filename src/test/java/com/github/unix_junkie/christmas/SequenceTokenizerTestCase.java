@@ -9,18 +9,21 @@ import static com.github.unix_junkie.christmas.InputEvent.ENTER;
 import static com.github.unix_junkie.christmas.InputEvent.ESC;
 import static com.github.unix_junkie.christmas.InputEvent.TAB;
 import static com.github.unix_junkie.christmas.SequenceConsumer.split;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 /**
  * @author Andrew ``Bass'' Shcheglov (andrewbass@gmail.com)
  */
-public final class SequenceTokenizerTestCase extends TestCase {
+@RunWith(JUnit4.class)
+public final class SequenceTokenizerTestCase {
 	@Test
+	@SuppressWarnings("static-method")
 	public void testAlpha() {
 		final StringBuilder s = new StringBuilder();
 		s.append("abcd");
@@ -30,6 +33,7 @@ public final class SequenceTokenizerTestCase extends TestCase {
 	}
 
 	@Test
+	@SuppressWarnings("static-method")
 	public void testSingleEscape() {
 		final StringBuilder s = new StringBuilder();
 		s.append("abcd").append(ESC).append("OP");
@@ -44,6 +48,7 @@ public final class SequenceTokenizerTestCase extends TestCase {
 	}
 
 	@Test
+	@SuppressWarnings("static-method")
 	public void testMultipleEscapes() {
 		final StringBuilder s = new StringBuilder();
 		s.append("abcd").append(ESC).append("OP").append(ESC).append("OQ");
@@ -58,6 +63,7 @@ public final class SequenceTokenizerTestCase extends TestCase {
 	}
 
 	@Test
+	@SuppressWarnings("static-method")
 	public void testControl() {
 		final StringBuilder s = new StringBuilder();
 		s.append("abcd").append(BACKSPACE).append(TAB).append(ENTER).append(DELETE);
@@ -69,6 +75,7 @@ public final class SequenceTokenizerTestCase extends TestCase {
 	}
 
 	@Test
+	@SuppressWarnings("static-method")
 	public void testMixed() {
 		final StringBuilder s = new StringBuilder();
 		s.append("abcd").append(BACKSPACE).append(TAB).append(ENTER).append(DELETE).append("abcd")

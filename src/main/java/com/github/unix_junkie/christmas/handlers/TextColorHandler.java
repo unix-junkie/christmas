@@ -55,31 +55,25 @@ public final class TextColorHandler extends AbstractInputEventHandler {
 
 		for (final InputEvent event : events) {
 			if (event.isControlWith('K')) {
-				term.invokeLater(new Runnable() {
-					/**
-					 * @see Runnable#run()
-					 */
-					@Override
-					public void run() {
-						term.clear();
-						testColorPair(term, MAGENTA, WHITE);
-						testColorPair(term, BRIGHT_MAGENTA, WHITE);
-						testColorPair(term, MAGENTA, BRIGHT_WHITE);
-						testColorPair(term, BRIGHT_MAGENTA, BRIGHT_WHITE);
-						testColorPair(term, RED, BLACK);
-						testColorPair(term, BRIGHT_RED, BLACK);
-						testColorPair(term, RED, BRIGHT_BLACK);
-						testColorPair(term, BRIGHT_RED, BRIGHT_BLACK);
-						testColorPair(term, YELLOW, GREEN);
-						testColorPair(term, BRIGHT_YELLOW, GREEN);
-						testColorPair(term, YELLOW, BRIGHT_GREEN);
-						testColorPair(term, BRIGHT_YELLOW, BRIGHT_GREEN);
-						testColorPair(term, BLUE, CYAN);
-						testColorPair(term, BRIGHT_BLUE, CYAN);
-						testColorPair(term, BLUE, BRIGHT_CYAN);
-						testColorPair(term, BRIGHT_BLUE, BRIGHT_CYAN);
-						term.flush();
-					}
+				term.invokeLater(() -> {
+					term.clear();
+					testColorPair(term, MAGENTA, WHITE);
+					testColorPair(term, BRIGHT_MAGENTA, WHITE);
+					testColorPair(term, MAGENTA, BRIGHT_WHITE);
+					testColorPair(term, BRIGHT_MAGENTA, BRIGHT_WHITE);
+					testColorPair(term, RED, BLACK);
+					testColorPair(term, BRIGHT_RED, BLACK);
+					testColorPair(term, RED, BRIGHT_BLACK);
+					testColorPair(term, BRIGHT_RED, BRIGHT_BLACK);
+					testColorPair(term, YELLOW, GREEN);
+					testColorPair(term, BRIGHT_YELLOW, GREEN);
+					testColorPair(term, YELLOW, BRIGHT_GREEN);
+					testColorPair(term, BRIGHT_YELLOW, BRIGHT_GREEN);
+					testColorPair(term, BLUE, CYAN);
+					testColorPair(term, BRIGHT_BLUE, CYAN);
+					testColorPair(term, BLUE, BRIGHT_CYAN);
+					testColorPair(term, BRIGHT_BLUE, BRIGHT_CYAN);
+					term.flush();
 				});
 			}
 		}

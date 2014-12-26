@@ -98,12 +98,12 @@ public enum TerminalType {
 
 	private final TitleWriter titleWriter;
 
-	private final Map<InputEvent, VtKey> knownEscapeSequences = new HashMap<InputEvent, VtKey>();
+	private final Map<InputEvent, VtKey> knownEscapeSequences = new HashMap<>();
 
 	/**
 	 * @todo Rewrite using prefix tree.
 	 */
-	private final List<ListEntry> knownVtResponses = new ArrayList<ListEntry>();
+	private final List<ListEntry> knownVtResponses = new ArrayList<>();
 
 	/**
 	 * @author Andrew ``Bass'' Shcheglov (andrewbass@gmail.com)
@@ -163,24 +163,8 @@ public enum TerminalType {
 		/*
 		 * All terminals.
 		 */
-		this.registerVtResponse(new Function<InputEvent, VtTerminalSize>() {
-			/**
-			 * @param from
-			 */
-			@Override
-			public VtTerminalSize apply(final InputEvent from) {
-				return new VtTerminalSize(from);
-			}
-		}, VtTerminalSize.PATTERN);
-		this.registerVtResponse(new Function<InputEvent, VtCursorLocation>() {
-			/**
-			 * @param from
-			 */
-			@Override
-			public VtCursorLocation apply(final InputEvent from) {
-				return new VtCursorLocation(from);
-			}
-		}, VtCursorLocation.PATTERN);
+		this.registerVtResponse(from -> new VtTerminalSize(from), VtTerminalSize.PATTERN);
+		this.registerVtResponse(from -> new VtCursorLocation(from), VtCursorLocation.PATTERN);
 
 		/*
 		 * On a per-terminal basis.

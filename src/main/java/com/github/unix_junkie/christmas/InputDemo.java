@@ -43,23 +43,17 @@ public final class InputDemo implements Application {
 	 */
 	@Override
 	public Runnable getPostCreationTask(final Terminal term) {
-		return new Runnable() {
-			/**
-			 * @see Runnable#run()
-			 */
-			@Override
-			public void run() {
-				term.setTitle(WINDOW_TITLE);
-				term.setToolbarVisible(false);
-				term.setCursorVisible(false);
-				term.setScrollbarVisible(false);
+		return () -> {
+			term.setTitle(WINDOW_TITLE);
+			term.setToolbarVisible(false);
+			term.setCursorVisible(false);
+			term.setScrollbarVisible(false);
 
-				term.setDefaultForeground(WHITE);
-				term.setDefaultBackground(BLACK);
-				term.clear();
+			term.setDefaultForeground(WHITE);
+			term.setDefaultBackground(BLACK);
+			term.clear();
 
-				term.start();
-			}
+			term.start();
 		};
 	}
 

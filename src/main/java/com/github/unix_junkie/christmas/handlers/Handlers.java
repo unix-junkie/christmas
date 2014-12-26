@@ -6,7 +6,6 @@ package com.github.unix_junkie.christmas.handlers;
 import com.github.unix_junkie.christmas.CursorLocationProvider;
 import com.github.unix_junkie.christmas.Dimension;
 import com.github.unix_junkie.christmas.Point;
-import com.github.unix_junkie.christmas.Terminal;
 import com.github.unix_junkie.christmas.TerminalSizeProvider;
 
 /**
@@ -22,16 +21,10 @@ public abstract class Handlers {
 			throw new IllegalArgumentException();
 		}
 
-		return new TerminalSizeProvider() {
-			/**
-			 * @see TerminalSizeProvider#getTerminalSize(Terminal)
-			 */
-			@Override
-			public Dimension getTerminalSize(final Terminal term) {
-				term.setCursorLocation(999, 999);
-				final Point cursorLocation = cursorLocationProvider.getCursorLocation(term);
-				return new Dimension(cursorLocation.getX(), cursorLocation.getY());
-			}
+		return term -> {
+			term.setCursorLocation(999, 999);
+			final Point cursorLocation = cursorLocationProvider.getCursorLocation(term);
+			return new Dimension(cursorLocation.getX(), cursorLocation.getY());
 		};
 	}
 }

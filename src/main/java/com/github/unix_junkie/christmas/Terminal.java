@@ -75,14 +75,8 @@ public final class Terminal extends PrintWriter {
 		 * Submit an empty task in order to force the event queue
 		 * to start.
 		 */
-		this.eventQueue.submit(new Runnable() {
-			/**
-			 * @see Runnable#run()
-			 */
-			@Override
-			public void run() {
-				// empty
-			}
+		this.eventQueue.submit(() -> {
+			// empty
 		});
 	}
 
@@ -652,6 +646,7 @@ public final class Terminal extends PrintWriter {
 			return "ISO8859-1";
 		case VTNT:
 			return isLocaleCyrilic() ? "IBM866" : "IBM437";
+		//$CASES-OMITTED$
 		default:
 			return getProperty("file.encoding");
 		}

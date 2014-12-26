@@ -7,7 +7,6 @@ import static com.github.unix_junkie.christmas.Dimension.UNDEFINED;
 import static com.github.unix_junkie.christmas.handlers.Handlers.asTerminalSizeProvider;
 
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 
 import com.github.unix_junkie.christmas.CursorLocationProvider;
@@ -88,15 +87,7 @@ public final class QuietTerminalSizeHandler extends AbstractInputEventHandler {
 		}
 
 		try {
-			return term.invokeLater(new Callable<Dimension>() {
-				/**
-				 * @see Callable#call()
-				 */
-				@Override
-				public Dimension call() {
-					return handler.getTerminalSize(term);
-				}
-			}).get();
+			return term.invokeLater(() -> handler.getTerminalSize(term)).get();
 		} catch (final InterruptedException ie) {
 			ie.printStackTrace();
 			return UNDEFINED;

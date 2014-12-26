@@ -48,7 +48,7 @@ public final class SequenceTokenizer extends Thread {
 
 	int sequencePositionMarker;
 
-	private final BlockingQueue<char[]> sequences = new LinkedBlockingQueue<char[]>();
+	private final BlockingQueue<char[]> sequences = new LinkedBlockingQueue<>();
 
 
 	/**
@@ -124,46 +124,40 @@ public final class SequenceTokenizer extends Thread {
 		 * This is the second thread which produces char sequences
 		 * consumed by the tokenizer.
 		 */
-		final Runnable sequenceProducer = new Runnable() {
-			/**
-			 * @see Runnable#run()
-			 */
-			@Override
-			public void run() {
-				int i;
-				try {
-					while (/* term.isOpen() && */ (i = SequenceTokenizer.this.term.read()) != -1) {
-						/*
-						 * 1. Interrupt the tokenizer,
-						 * so that a new cycle is started.
-						 */
-						SequenceTokenizer.this.interrupt();
+		final Runnable sequenceProducer = () -> {
+			int i;
+			try {
+				while (/* term.isOpen() && */ (i = SequenceTokenizer.this.term.read()) != -1) {
+					/*
+					 * 1. Interrupt the tokenizer,
+					 * so that a new cycle is started.
+					 */
+					SequenceTokenizer.this.interrupt();
 
-						/*
-						 * 2. Append the character to the sequence.
-						 */
-						final char c = (char) i;
-						synchronized (SequenceTokenizer.this.sequenceLock) {
-							if (SequenceTokenizer.this.sequencePositionMarker < SequenceTokenizer.this.sequence.length) {
-								SequenceTokenizer.this.sequence[SequenceTokenizer.this.sequencePositionMarker++] = c;
-							}
+					/*
+					 * 2. Append the character to the sequence.
+					 */
+					final char c = (char) i;
+					synchronized (SequenceTokenizer.this.sequenceLock) {
+						if (SequenceTokenizer.this.sequencePositionMarker < SequenceTokenizer.this.sequence.length) {
+							SequenceTokenizer.this.sequence[SequenceTokenizer.this.sequencePositionMarker++] = c;
 						}
 					}
-				} catch (final SocketException se) {
-					/*
-					 * Socket we're reading from is closed,
-					 * so suppress the output and exit the application.
-					 */
-					/**
-					 * @todo write to the log file.
-					 */
-					exit(0);
-				} catch (final IOException ioe) {
-					/*
-					 * Never.
-					 */
-					ioe.printStackTrace();
 				}
+			} catch (final SocketException se) {
+				/*
+				 * Socket we're reading from is closed,
+				 * so suppress the output and exit the application.
+				 */
+				/**
+				 * @todo write to the log file.
+				 */
+				exit(0);
+			} catch (final IOException ioe) {
+				/*
+				 * Never.
+				 */
+				ioe.printStackTrace();
 			}
 		};
 		final Thread thread = new Thread(sequenceProducer, "SequenceProducer");

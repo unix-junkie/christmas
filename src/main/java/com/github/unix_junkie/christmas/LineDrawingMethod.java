@@ -161,6 +161,7 @@ public enum LineDrawingMethod {
 			switch (style) {
 			case NONE:
 				return ' ';
+			//$CASES-OMITTED$
 			default:
 				switch (character) {
 				case HORIZONTAL:
@@ -207,6 +208,7 @@ public enum LineDrawingMethod {
 			switch (style) {
 			case NONE:
 				return ' ';
+			//$CASES-OMITTED$
 			default:
 				switch (character) {
 				case HORIZONTAL:

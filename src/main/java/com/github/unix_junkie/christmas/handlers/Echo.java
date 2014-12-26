@@ -31,36 +31,30 @@ public final class Echo extends AbstractInputEventHandler {
 	 */
 	@Override
 	public void handle(final Terminal term, final List<InputEvent> events) {
-		term.invokeLater(new Runnable() {
-			/**
-			 * @see Runnable#run()
-			 */
-			@Override
-			public void run() {
-				if (events.isEmpty()) {
-					/*
-					 * Do not clear the screen
-					 * or otherwise mess with the terminal
-					 * if the sequence is empty
-					 * (may happen if certain terminal responses
-					 * have been removed from an initially non-empty sequence).
-					 */
-					return;
-				}
-
-				if (!isDebugMode()) {
-					/*
-					 * In debug mode, don't clear the screen
-					 * as we may miss interesting terminal responses.
-					 */
-					term.clear();
-				}
-				for (final InputEvent event : events) {
-					term.print(event);
-				}
-				term.println();
-				term.flush();
+		term.invokeLater(() -> {
+			if (events.isEmpty()) {
+				/*
+				 * Do not clear the screen
+				 * or otherwise mess with the terminal
+				 * if the sequence is empty
+				 * (may happen if certain terminal responses
+				 * have been removed from an initially non-empty sequence).
+				 */
+				return;
 			}
+
+			if (!isDebugMode()) {
+				/*
+				 * In debug mode, don't clear the screen
+				 * as we may miss interesting terminal responses.
+				 */
+				term.clear();
+			}
+			for (final InputEvent event : events) {
+				term.print(event);
+			}
+			term.println();
+			term.flush();
 		});
 
 		if (this.next != null) {

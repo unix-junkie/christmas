@@ -107,7 +107,7 @@ public final class SequenceConsumer extends Thread {
 			return emptyList();
 		}
 
-		final List<InputEvent> events = new ArrayList<InputEvent>();
+		final List<InputEvent> events = new ArrayList<>();
 
 		final int firstIndexOfEsc = firstIndexOf(sequence, InputEvent.ESC);
 		switch (firstIndexOfEsc) {
