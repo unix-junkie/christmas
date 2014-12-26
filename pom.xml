@@ -11,12 +11,67 @@
 	<artifactId>christmas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
+	<name>Christmas</name>
+	<description>A Java TUI widget toolkit which aims at using no native code at all.</description>
+	<url>https://unix-junkie.github.io/christmas</url>
+	<inceptionYear>2011</inceptionYear>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License Version 3</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/unix-junkie/christmas</url>
+		<connection>scm:git:git@github.com:unix-junkie/christmas.git</connection>
+		<developerConnection>scm:git:git@github.com:unix-junkie/christmas.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<issueManagement>
+		<url>https://github.com/unix-junkie/christmas/issues</url>
+	</issueManagement>
+
+	<ciManagement>
+		<url>https://travis-ci.org/unix-junkie/christmas</url>
+	</ciManagement>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<developers>
+		<developer>
+			<id>unix-junkie</id>
+			<name>Andrew ``Bass'' Shcheglov</name>
+			<email>andrewbass@gmail.com</email>
+			<url>https://github.com/unix-junkie</url>
+		</developer>
+	</developers>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.shellSourceDirectory>${basedir}/src/main/shell</project.build.shellSourceDirectory>
 		<!-- TODO: is there a standard name for this? -->
 		<project.build.resourceDirectory>${basedir}/src/main/resources</project.build.resourceDirectory>
 		<emacsMode>true</emacsMode>
+		<exec.mainClass>com.github.unix_junkie.christmas.jnlp.JnlpMain</exec.mainClass>
 		<scala.version>2.11.4</scala.version>
 		<google.collections.version>1.0</google.collections.version>
 		<javadoc.plugin.version>2.9.1</javadoc.plugin.version>
@@ -39,14 +94,29 @@
 	</pluginRepositories>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<mavenExecutorId>forked-path</mavenExecutorId>
+						<useReleaseProfile>false</useReleaseProfile>
+						<arguments>-Psonatype-oss-release</arguments>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 					<fork>false</fork>
 					<showDeprecation>true</showDeprecation>
 					<showWarnings>true</showWarnings>
@@ -98,7 +168,7 @@
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-							<goal>jar</goal>
+							<goal>jar-no-fork</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -132,6 +202,29 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.3.1</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<version>1.8</version>
+								</requireJavaVersion>
+								<requireMavenVersion>
+									<version>3.0</version>
+								</requireMavenVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2.2</version>
 				<configuration>
@@ -148,6 +241,17 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.1</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
 			</plugin>
 		</plugins>
 		<pluginManagement>
@@ -186,6 +290,33 @@
 	</build>
 
 	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 			<id>doclint-java8-disable</id>
 			<activation>
