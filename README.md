@@ -6,6 +6,7 @@ A Java TUI ([text-based user interface](https://en.wikipedia.org/wiki/Text-based
 
  * Support for common terminal types (`ansi`, `linux`, `xterm*`, `screen*`, `vt*`, `dtterm` etc.) and terminal emulators (XTerm, RXVT, PuTTY, DtTerm etc).
  * Support for 16 ANSI colours. Bright foreground is implemented using either `BOLD` attribute or `AIXTerm` control sequences (terminal-dependent). Bright background is implemented using either `BLINK` attribute (RXVT family) or `AIXTerm` control sequences (terminal-dependent).
+ * Pseudographics via either Unicode line drawing characters (if locale's codepage supports it -- i. e. for `UTF-8`, `IBM866`, `KOI8-R`) or VT100 line drawing characters.
  * Continuous window size querying (for terminals which have this capability). Support for `SIGWINCH` (UNIX) is planned.
  * Correct handling of most control and escape sequences, incl. function keys (ANSI/Sun/SCO etc.)
  * Custom window titles supported. 
