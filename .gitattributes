@@ -7,3 +7,4 @@
 *.html		diff text ident
 .project	diff text ident
 .classpath	diff text ident
+/src/main/shell/**/*	diff text ident

@@ -1,50 +1,48 @@
 #!/bin/bash
 #
-# $Id: christmas-demo 114 2013-02-03 12:01:05Z andrewbass $
+# $Id$
 #
-
-
-CLASSPATH="\
-`dirname $0`/../share/java/christmas-0.0.1-SNAPSHOT.jar:\
-`dirname $0`/../share/christmas/google-collections-1.0.jar:\
-"
-export CLASSPATH
 
 tty=`tty 2>/dev/null`
 returnValue=$?
 if [ ${returnValue} -ne 0 ]
 then
 	exit ${returnValue}
-else
-	STTYARGS='-icanon min 1 time 0 -echo -icrnl intr undef flush undef start undef stop undef lnext undef susp undef quit undef'
-	VMARGS="-client -Xmx6m -Dfile.encoding=`locale charmap` -Dterminal.debug=false"
-	case `uname -s` in
-	Linux)
-		# Linux: stty doesn't accept any "dsusp" argument
-		;;
-	FreeBSD)
-		# FreeBSD: dsusp defaults to ^Y
-		STTYARGS="${STTYARGS} dsusp undef"
-		;;
-	SunOS)
-		# Solaris: dsusp defaults to ^Y
-		STTYARGS="${STTYARGS} dsusp undef"
-		;;
-	Darwin)
-		# Mac OS X: dsusp defaults to ^Y
-		STTYARGS="${STTYARGS} dsusp undef"
-		# Mac OS X *does* have a 32-bit JVM
-		VMARGS="${VMARGS} -d32"
-		;;
-	CYGWIN_NT-*)
-		# CYGWIN: stty doesn't accept any "dsusp" argument
-		;;
-	*)
-		;;
-	esac
-	stty ${STTYARGS}
-	java ${VMARGS} com.github.unix_junkie.christmas.InputDemo ${tty}
-	returnValue=$?
-	stty sane 2>/dev/null
-	exit ${returnValue}
 fi
+
+STTYARGS='-icanon min 1 time 0 -echo -icrnl intr undef flush undef start undef stop undef lnext undef susp undef quit undef'
+VMARGS="-client -Xmx6m -Dfile.encoding=`locale charmap` -Dterminal.debug=false"
+PATH_SEP=':'
+case `uname -s` in
+Linux)
+	# Linux: stty doesn't accept any "dsusp" argument
+	;;
+SunOS|FreeBSD)
+	# Solaris & FreeBSD: dsusp defaults to ^Y
+	STTYARGS="${STTYARGS} dsusp undef"
+	;;
+Darwin)
+	# Mac OS X: dsusp defaults to ^Y
+	STTYARGS="${STTYARGS} dsusp undef"
+	# Mac OS X *does* have a 32-bit JVM
+	VMARGS="${VMARGS} -d32"
+	;;
+CYGWIN_NT-*|MINGW_NT-*|MINGW64_NT-*|MSYS_NT-*|MINGW32)
+	# CYGWIN: stty doesn't accept any "dsusp" argument
+	PATH_SEP=';'
+	;;
+*)
+	;;
+esac
+
+CLASSPATH="\
+`dirname $0`/../share/java/christmas-0.0.1-SNAPSHOT.jar${PATH_SEP}\
+`dirname $0`/../share/christmas/google-collections-1.0.jar${PATH_SEP}\
+"
+export CLASSPATH
+
+stty ${STTYARGS}
+java ${VMARGS} com.github.unix_junkie.christmas.InputDemo ${tty}
+returnValue=$?
+stty sane 2>/dev/null
+exit ${returnValue}
