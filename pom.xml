@@ -59,7 +59,7 @@
 	<developers>
 		<developer>
 			<id>unix-junkie</id>
-			<name>Andrew ``Bass'' Shcheglov</name>
+			<name>Andrey ``Bass'' Shcheglov</name>
 			<email>andrewbass@gmail.com</email>
 			<url>https://github.com/unix-junkie</url>
 		</developer>
@@ -73,7 +73,7 @@
 		<emacsMode>true</emacsMode>
 		<exec.mainClass>com.github.unix_junkie.christmas.jnlp.JnlpMain</exec.mainClass>
 		<exec.args>com.github.unix_junkie.christmas.InputDemo</exec.args>
-		<scala.version>2.11.4</scala.version>
+		<scala.version>2.11.12</scala.version>
 		<google.collections.version>1.0</google.collections.version>
 		<javadoc.plugin.version>2.9.1</javadoc.plugin.version>
 	</properties>
@@ -362,12 +362,12 @@
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-swing</artifactId>
-			<version>2.10.4</version>
+			<version>2.10.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-dbc</artifactId>
-			<version>2.10.0-M2</version>
+			<version>2.9.3</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.collections</groupId>
@@ -377,13 +377,13 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.code.findbugs</groupId>
 			<artifactId>jsr305</artifactId>
-			<version>3.0.0</version>
+			<version>3.0.2</version>
 		</dependency>
 	</dependencies>
 
